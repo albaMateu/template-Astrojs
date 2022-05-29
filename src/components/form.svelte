@@ -10,7 +10,13 @@ validateForm() function, and if it returns true, it will call the sendEmail */
       function (e) {
         e.preventDefault(); //evita el reload en el submit
         if (validateForm()) {
-          sendEmail();
+          //sendEmail();
+          let boxError = document.getElementById("toast-danger");
+          boxError.classList.remove("hidden");
+          boxError.classList.add("flex");
+          document.querySelector(".messageError").innerHTML =
+            "Actualmente el formulario está desactivado." +
+            "Si quieres ponerte en contacto con la creadora, visite <a href='https://almape.dev' class='text-naranja font-bold' target='_blank'> almape.dev </a> ";
         }
       },
       false

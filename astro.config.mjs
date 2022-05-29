@@ -6,5 +6,4 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   integrations: [tailwind({ config: { applyAstroPreset: false } }), svelte()],
   sitemap: true,
-  //site: "https://egaratopografia.es",
 });
