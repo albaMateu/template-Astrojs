@@ -1,0 +1,25 @@
+---
+import ValorItem from "../components/Valor_item.astro";
+
+import { getValors } from "../service/valors.js";
+
+const valors = await getValors();
+---
+
+<div class="text-center">
+    <h2 class="text-base text-naranja font-semibold tracking-wide uppercase">Nuestros valores</h2>
+    <p class="mt-2 md:text-5xl leading-8 font-extrabold tracking-tight sm:text-4xl">sapien eget mi proin</p>
+    <p class="mt-4 max-w-2xl text-xl lg:mx-auto sm:text-justify lg:text-center sm:px-5 lg:px-0">Lorem ipsum dolor sit
+        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed turpis
+        tincidunt id aliquet risus.</p>
+</div>
+<div class="mt-10 text-justify">
+    <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+
+        {
+        valors.map(({title, frases, icono}) => (
+        <ValorItem name={title} description={frases} icon={icono} />
+        ))
+        }
+    </dl>
+</div>

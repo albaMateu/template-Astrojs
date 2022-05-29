@@ -1,0 +1,31 @@
+---
+export interface Props {
+  social: 'instagram' | 'facebook' | 'youtube'
+}
+const XARXES = {
+  instagram: 'pink',
+  facebook: 'blue',
+  youtube: 'red'
+}
+const COLORS = {
+  pink: ['bg-gradient-to-b hover:from-indigo-600 hover:via-pink-600 hover:to-yellow-500'],
+  blue: ['hover:bg-blue-600'],
+  red: ['hover:bg-red-600']
+}
+const URL = {
+  instagram: 'https://instagram.com/',
+  facebook: 'https://www.facebook.com/',
+  youtube: 'https://www.youtube.com/'
+}
+
+const { social } = Astro.props as Props;
+const bgColor = XARXES[social];
+const [clases] = COLORS[bgColor];
+const enlace = URL[social];
+---
+
+<a id={`${social}`} class={`text-${bgColor}-600 border-${bgColor}-600 border-2 hover:border-0 min-w-wull
+  hover:text-white bg-white w-10 h-10 transform hover:-translate-y-3 rounded-full duration-500 text-center p-1.5
+  ${clases}`} href={`${enlace}`} target="_blank">
+  <i class={`fa-brands fa-${social}`}></i>
+</a>

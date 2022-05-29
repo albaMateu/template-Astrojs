@@ -1,0 +1,106 @@
+---
+import "../styles/styles.css";
+import Header from '../components/_Header.astro';
+import Hero from '../parts/Hero.astro';
+import Timeline from '../parts/Timeline.astro';
+import Carousel from '../components/Carousel.svelte';
+import Card from "../components/_card.astro";
+import StarService from '../parts/StarService.astro'
+import Valors from '../parts/Valors.astro';
+import FormContact from '../components/form.svelte';
+import ContactInfo from '../parts/ContactInfo.astro';
+import ScrollToTop from '../components/ScrollToTop.svelte';
+import BannerCookies from "../components/banner_cookies.svelte";
+import Footer from '../components/_Footer.astro';
+
+const title = "Lorem Ipsum";
+---
+
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/x-icon" href="/img/logo_lorem.ico">
+  <title>{title} | Template with Astrojs</title>
+  <!-- meta tags SEO -->
+  <meta name="description" content="Template with Astro" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <!-- google search -->
+  <meta name="google-site-verification" content="..." />
+  <!-- tags enlaces -->
+  <meta property="og:title" content="Lorem ipsum" />
+  <meta property="og:description" content="Template with Astro" />
+  <meta property="og:image" content="" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- icons -->
+  <link rel="stylesheet" href="css/fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="css/fontawesome/css/brands.min.css" />
+  <link rel="stylesheet" href="css/fontawesome/css/solid.min.css" />
+  <link rel="sitemap" href="sitemap.xml" />
+</head>
+<body>
+  <!-- menú -->
+  <Header title={title} />
+  <!-- seccion Hero -->
+  <section id="hero" class="overflow-hidden relative degradado-violeta-naranja">
+    <Hero title={title} />
+  </section>
+  <!-- Seccion clientes  -->
+  <section id="clientes">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 lg:flex">
+      <article id="client-line" class="lg:w-1/2 text-center">
+        <Timeline />
+      </article>
+      <article id="formulario" class="lg:w-3/6 lg:mt-2 sm:mt-20">
+        <FormContact client:visible />
+      </article>
+    </div>
+  </section>
+
+  <!-- Seccion servicios  -->
+  <section id="star-service" class="bg-naranja">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <StarService />
+    </div>
+  </section>
+  <!-- Seccion servicios  -->
+  <section id="servicios">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <Carousel client:visible>
+        <Card />
+      </Carousel>
+    </div>
+  </section>
+
+  <!-- seccion valores -->
+  <section id="valores" class="bg-violeta-claro text-white">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <Valors />
+    </div>
+  </section>
+
+  <!-- seccion contacto empresa -->
+  <section id="contacto">
+    <div class="max-w-7xl mx-auto px-8 lg:flex items-center">
+      <article id="info" class="text-center md:mx-10 w-full">
+        <ContactInfo />
+      </article>
+    </div>
+  </section>
+  <!-- scroll to top -->
+  <ScrollToTop client:load />
+  <!-- banner cookies -->
+  <div id="cookies"
+    class="bg-gray-900 bg-opacity-90 min-h-[50px] sm:py-[5px] md:py-[15px] fixed bottom-0 w-full hidden">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-around flex">
+      <BannerCookies client:load />
+    </div>
+  </div>
+
+  <!-- pie  -->
+  <Footer title={title} />
+
+</body>
+</html>

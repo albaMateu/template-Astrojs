@@ -1,0 +1,17 @@
+---
+import { getServices } from "../service/services";
+
+const serveis = await getServices();
+---
+
+{
+serveis.map(({title, parrafo}) => (
+<div
+  class="slide flex flex-shrink-0 md:w-[31.8%] sm:w-full rounded-lg bg-naranja odd:bg-violeta-claro bg-opacity-20 odd:bg-opacity-20">
+  <div class=" w-full h-full p-6 ">
+    <h2 class="text-violeta-oscuro text-2xl font-extrabold mb-4 text-center">{title}</h2>
+    <p class="text-gray-700 text-base md:text-justify sm:text-left">{parrafo}</p>
+  </div>
+</div>
+))
+}

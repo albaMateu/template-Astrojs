@@ -1,0 +1,40 @@
+---
+import { getClients } from "../service/clients.js";
+
+const clients = await getClients();
+---
+
+<div class="mx-auto">
+    <div class="text-center pb-10">
+        <h3 class="mt-2 md:text-5xl leading-8 font-extrabold tracking-tight sm:text-4xl text-gray-700">A quién nos
+            dirigimos
+        </h3>
+        <p class="mt-4 max-w-2xl text-xl lg:mx-auto text-center sm:px-5 lg:px-0 text-gray-400">Nuestros servicios van
+            dirigidos
+            <span class="block">tanto a personas que sean:</span>
+        </p>
+    </div>
+    <div id="timeline">
+        <div class="relative wrap h-full">
+            <div id="line_timeline" class="-z-10 absolute border-2-2 border-opacity-20 border-naranja h-full border">
+            </div>
+            <div id="line">
+                <!-- right timeline -->
+                {
+                clients.map(({title, frases}) => (
+                <div class="mb-2 flex md:justify-evenly sm:justify-start items-center w-full">
+                    <div class="order-1 w-5/12 sm:hidden md:flex"></div>
+                    <div class="flex items-center sm:mr-5 md:mr-0 order-1 bg-violeta-oscuro w-6 h-6 rounded-full">
+                    </div>
+                    <div class="order-1 border-violeta-claro border-2 rounded-lg  sm:w-11/12 md:w-5/12 px-6 py-4">
+                        <h3 class="mb-3 font-bold text-gray-800 text-xl">{title}</h3>
+                        <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100 text-justify">
+                            {frases}</p>
+                    </div>
+                </div>
+                ))
+                }
+            </div>
+        </div>
+    </div>
+</div>
